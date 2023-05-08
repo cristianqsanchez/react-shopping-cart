@@ -1,42 +1,101 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.products {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.products li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #111;
+  border-radius: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.products h3 {
+  margin: 0;
 }
 
-.card {
-  padding: 2em;
+.products img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filters > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.cart {
+  background: #000;
+  display: none;
+  padding: 32px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 200px;
+}
+
+.cart img {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.cart li {
+  border-bottom: 1px solid #444;
+  padding-bottom: 16px;
+}
+
+.cart footer {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart footer button {
+  padding: 8px;
+}
+
+.cart-button {
+  align-items: center;
+  background: #09f;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  padding: 4px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  transition: all .3s ease;
+  width: 32px;
+  z-index: 9999;
+}
+
+.cart-button:hover {
+  scale: 1.1;
+}
+
+.cart-button~input:checked~.cart {
+  height: 100%;
+  display: block;
 }
